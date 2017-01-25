@@ -1,18 +1,28 @@
 #include <iostream>
 
-int fibonacciDp(int n)
+
+#define FIB0  0
+#define FIB1  1
+
+long fibonacciDp(int n)
 {
-   int fib[n+1];
-   fib[0] = 1;
-   fib[1] = 1;
+   long fib_n_1 = FIB1;  //fib(n-1)
+   long fib_n_2 = FIB0;  //fib(n-2) 
+   long fib_n;
    for(int i = 2; i < n+1; i++)
-      fib[i] = fib[i-1] +fib[i-2];
+   {	
+   	   fib_n = fib_n_1 + fib_n_2;
+   	   fib_n_2 = fib_n_1;
+   	   fib_n_1 = fib_n;
+   }
    
-   return fib[n];
+   
+   return fib_n;
 }
 
 int main(int argc, char const *argv[])
 {
-	std::cout<<"FIB(5) "<<fibonacciDp(5)<<"\n";
+
+	std::cout<<"fib(5) "<<fibonacciDp(5)<<"\n";
 	return 0;
 }
