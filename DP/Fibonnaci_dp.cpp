@@ -1,6 +1,6 @@
 #include <iostream>
 
-
+//Initialize 0 and 1
 #define FIB0  0
 #define FIB1  1
 
@@ -9,6 +9,7 @@ long fibonacciDp(int n)
    long fib_n_1 = FIB1;  //fib(n-1)
    long fib_n_2 = FIB0;  //fib(n-2) 
    long fib_n;
+   if(n == 0)return 0;
    for(int i = 2; i < n+1; i++)
    {	
    	   fib_n = fib_n_1 + fib_n_2;
